@@ -8,8 +8,7 @@ const nextConfig: NextConfig = {
         hostname: '**.neon.tech', 
       },
       {
-        protocol: 'https',
-        hostname: '**.aws.neon.tech', 
+    unoptimized: true,
       },
     ],
   },
