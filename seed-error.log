@@ -1,0 +1,12 @@
+ZodError: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "weight"
+    ],
+    "message": "Invalid input: expected string, received number"
+  }
+]
+    at seed (D:\work\projects\ecommers\src\scripts\seed.ts:155:57)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

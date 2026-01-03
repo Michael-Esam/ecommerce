@@ -1,0 +1,81 @@
+﻿
+> next-app-starter@0.1.0 lint
+> eslint
+
+
+D:\work\projects\ecommers\src\app\(root)\page.tsx
+  1:8   warning  'Link' is defined but never used               @typescript-eslint/no-unused-vars
+  2:8   warning  'Card' is defined but never used               @typescript-eslint/no-unused-vars
+  3:10  warning  'getAllProducts' is defined but never used     @typescript-eslint/no-unused-vars
+  7:9   warning  'products' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  7:19  error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+
+D:\work\projects\ecommers\src\app\(root)\products\[id]\page.tsx
+    4:10  warning  'Heart' is defined but never used         @typescript-eslint/no-unused-vars
+   55:39  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   65:14  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  117:76  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\work\projects\ecommers\src\app\(root)\products\page.tsx
+  54:33  error  Do not use an `<a>` element to navigate to `/products/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+D:\work\projects\ecommers\src\components\Filters.tsx
+  5:10  warning  'X' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\components\Footer.tsx
+  108:37  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\work\projects\ecommers\src\components\Navbar.tsx
+   4:10  warning  'useCartStore' is defined but never used  @typescript-eslint/no-unused-vars
+   5:10  warning  'useEffect' is defined but never used     @typescript-eslint/no-unused-vars
+  30:18  error    'Link' is not defined                     react/jsx-no-undef
+  43:26  error    'Link' is not defined                     react/jsx-no-undef
+  58:22  error    'Link' is not defined                     react/jsx-no-undef
+  92:34  error    'Link' is not defined                     react/jsx-no-undef
+
+D:\work\projects\ecommers\src\components\ProductActions.tsx
+  11:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\work\projects\ecommers\src\components\ProductGallery.tsx
+   3:20  warning  'useEffect' is defined but never used                @typescript-eslint/no-unused-vars
+  14:12  warning  'validImages' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  14:25  warning  'setValidImages' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\actions\cart.ts
+  5:10  warning  'productVariants' is defined but never used  @typescript-eslint/no-unused-vars
+  6:10  warning  'products' is defined but never used         @typescript-eslint/no-unused-vars
+  7:10  warning  'productImages' is defined but never used    @typescript-eslint/no-unused-vars
+  9:10  warning  'cookies' is defined but never used          @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\actions\product.ts
+  10:35  warning  'inArray' is defined but never used           @typescript-eslint/no-unused-vars
+  10:44  warning  'count' is defined but never used             @typescript-eslint/no-unused-vars
+  26:9   warning  'orderBy' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\auth\actions.ts
+  34:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  58:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\db\schema\account.ts
+  1:36  warning  'uuid' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\db\schema\session.ts
+  1:36  warning  'uuid' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\db\schema\user.ts
+  1:45  warning  'uuid' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\db\schema\verification.ts
+  1:36  warning  'uuid' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\lib\utils\query.ts
+  1:41  warning  'desc' is defined but never used  @typescript-eslint/no-unused-vars
+  1:47  warning  'asc' is defined but never used   @typescript-eslint/no-unused-vars
+  1:61  warning  'sql' is defined but never used   @typescript-eslint/no-unused-vars
+
+D:\work\projects\ecommers\src\store\cart.store.ts
+  17:53  warning  'get' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 40 problems (12 errors, 28 warnings)
+

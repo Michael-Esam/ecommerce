@@ -1,0 +1,3 @@
+src/scripts/seed.ts(16,62): error TS2305: Module '"@/lib/db/schema/products"' has no exported member 'InsertProduct'.
+src/scripts/seed.ts(16,82): error TS2724: '"@/lib/db/schema/products"' has no exported member named 'InsertProductImage'. Did you mean 'insertProductImageSchema'?
+src/scripts/seed.ts(17,36): error TS2305: Module '"@/lib/db/schema/variants"' has no exported member 'InsertVariant'.
