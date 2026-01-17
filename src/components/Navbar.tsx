@@ -6,16 +6,19 @@ import { useCartStore } from "@/store/cart.store";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { Search, X, ShoppingBag, Menu, Heart } from "lucide-react";
+import { Search, X, ShoppingBag, Menu, Heart, User, LogOut } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const { cart, fetchCart } = useCartStore();
     const router = useRouter();
     const searchParams = useSearchParams();
+    const { data: session } = authClient.useSession();
 
     useEffect(() => {
         fetchCart();
@@ -42,7 +45,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="relative z-50 w-full bg-light-100 font-jost">
+        <nav className="fixed z-50 w-full bg-light-100 font-jost">
             <div className="mx-auto flex h-[60px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
@@ -106,6 +109,35 @@ export default function Navbar() {
                         )}
                     </div>
 
+                    <div className="relative">
+                        <button
+                            onClick={() => session ? setIsUserMenuOpen(!isUserMenuOpen) : router.push("/sign-in")}
+                            className="flex items-center text-dark-900 hover:text-dark-700"
+                        >
+                            <User className="h-5 w-5" />
+                        </button>
+
+                        {isUserMenuOpen && session && (
+                            <div className="absolute right-0 top-full mt-2 w-48 rounded-md border border-light-300 bg-light-100 py-2 shadow-lg">
+                                <div className="border-b border-light-300 px-4 py-2">
+                                    <p className="text-sm font-medium text-dark-900">{session.user.name}</p>
+                                    <p className="text-xs text-dark-500">{session.user.email}</p>
+                                </div>
+                                <button
+                                    onClick={async () => {
+                                        await authClient.signOut();
+                                        setIsUserMenuOpen(false);
+                                        router.refresh();
+                                    }}
+                                    className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-light-200"
+                                >
+                                    <LogOut className="h-4 w-4" />
+                                    Sign Out
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
                     <Link href="/favorites" className="text-dark-900 hover:text-dark-700">
                         <Heart className="h-5 w-5" />
                     </Link>
@@ -153,6 +185,26 @@ export default function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
+                            {session ? (
+                                <button
+                                    onClick={async () => {
+                                        await authClient.signOut();
+                                        setIsMenuOpen(false);
+                                        router.refresh();
+                                    }}
+                                    className="text-left text-lead font-medium text-red-600"
+                                >
+                                    Sign Out
+                                </button>
+                            ) : (
+                                <Link
+                                    href="/sign-in"
+                                    className="text-lead font-medium text-dark-900"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Sign In
+                                </Link>
+                            )}
                         </div>
                     </div>
                 )

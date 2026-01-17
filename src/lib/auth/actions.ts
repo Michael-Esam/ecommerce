@@ -27,6 +27,7 @@ export async function signUp(data: z.infer<typeof signUpSchema>) {
                 email,
                 password,
             },
+            headers: await headers(),
         });
 
         // Migrate guest cart logic here
@@ -51,6 +52,7 @@ export async function signIn(data: z.infer<typeof signInSchema>) {
                 email,
                 password,
             },
+            headers: await headers(),
         });
 
         // Migrate guest cart logic here
